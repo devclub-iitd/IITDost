@@ -3,4 +3,9 @@
     <string name="title_home">Home</string>
     <string name="title_requests">My Requests</string>
     <string name="title_notifications">Notifications</string>
+    <string name="request_a_document">Request a Document</string>
+    <string name="book_an_appointment">Book an Appointment</string>
+    <string name="search">Search</string>
+    <string name="navDrawerTest">Test</string>
+    <string name="iitdost">IITDOST</string>
 </resources>
