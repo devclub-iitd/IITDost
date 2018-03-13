@@ -1,9 +1,11 @@
 package com.example.iitdost;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -61,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setAccentColor(Color.parseColor("#000000"));
         bottomNavigation.setInactiveColor(Color.parseColor("#c3baba"));
         bottomNavigation.setTitleTextSize(45,30);
-//        bottomNavigation.
+        Typeface typeface = ResourcesCompat.getFont(getApplicationContext(), R.font.opensans_semibold);
+        bottomNavigation.setTitleTypeface(typeface);
 
     }
 
