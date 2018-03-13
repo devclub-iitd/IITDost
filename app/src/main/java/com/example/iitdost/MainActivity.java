@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -40,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+// Remove default title text
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+// Get access to the custom title view
+        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+
         mTextMessage = (TextView) findViewById(R.id.message);
 //        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
 //        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -53,5 +63,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+//    // Menu icons are inflated just as they were with actionbar
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+//        return true;
+//    }
+
 
 }
