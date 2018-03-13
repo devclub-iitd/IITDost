@@ -10,4 +10,11 @@
     <string name="iitdost">IITDOST</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="welcome">WELCOME AYUSH PATEL</string>
+    <string name="accounts_and_fee">Accounts and Fee</string>
+    <string name="my_schedule_assistant">My Schedule Assistant</string>
+    <string name="student_details">M. Tech (Mechanical) 2016MTC33406</string>
+    <string name="student_name">ALPA MENON</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="menu">Menu</string>
 </resources>

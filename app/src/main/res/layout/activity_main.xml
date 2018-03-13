@@ -55,7 +55,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/antonio_regular"
-        android:text="WELCOME AYUSH PATEL"
+        android:text="@string/welcome"
         android:textColor="#238053"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +130,7 @@
 
                 android:fontFamily="@font/antonio_light"
                 android:letterSpacing="0.1"
-                android:text=  "Accounts and Fee"
+                android:text=  "@string/accounts_and_fee"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="28sp" />
@@ -147,7 +147,7 @@
                 android:fontFamily="@font/antonio_light"
 
                 android:letterSpacing="0.1"
-                android:text="My Schedule Assistant"
+                android:text="@string/my_schedule_assistant"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="28sp" />

@@ -2,18 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<menu xmlns:android="http://schemas.android.com/apk/res/android"-->
         <item
-            android:id="@+id/miSeach"
+            android:id="@+id/miSearch"
             android:icon="@mipmap/magnifying_glass"
             app:showAsAction="ifRoom"
-            android:title="Search">
+            android:title="@string/search">
         </item>
         <item
             android:id="@+id/miSideMenu"
             android:icon="@mipmap/menu"
             app:showAsAction="ifRoom|withText"
-            android:title="Menu">
+            android:title="@string/menu">
         </item>
-    <!--</menu>-->
 </menu>
