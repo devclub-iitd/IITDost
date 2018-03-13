@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_requests"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@mipmap/request"
         android:title="@string/title_requests" />
 
 
