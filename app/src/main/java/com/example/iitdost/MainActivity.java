@@ -59,8 +59,9 @@ public class MainActivity extends AppCompatActivity {
         AHBottomNavigationAdapter navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.navigation);
         navigationAdapter.setupWithBottomNavigation(bottomNavigation, tabColors);
         bottomNavigation.setAccentColor(Color.parseColor("#000000"));
-        bottomNavigation.setInactiveColor(Color.parseColor("#747474"));
-
+        bottomNavigation.setInactiveColor(Color.parseColor("#c3baba"));
+        bottomNavigation.setTitleTextSize(45,30);
+//        bottomNavigation.
 
     }
 
