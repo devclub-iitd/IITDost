@@ -114,7 +114,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Book an Appointment" />
+            android:text="Accounts and Fee" />
 
         <Button
             android:id="@+id/button4"
@@ -127,7 +127,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Book an Appointment" />
+            android:text="My Schedule Assistant" />
     </LinearLayout>
 
     <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
