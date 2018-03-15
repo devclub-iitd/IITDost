@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setInactiveColor(Color.parseColor("#c3baba"));
 
         //Setting text size for active and inactive states
-        bottomNavigation.setTitleTextSize(45, 30);
+        bottomNavigation.setTitleTextSizeInSp(16  , 13);
 
         //Setting typeface for titles on bottom navigation bar
         Typeface typeface = ResourcesCompat.getFont(getApplicationContext(), R.font.opensans_semibold);
