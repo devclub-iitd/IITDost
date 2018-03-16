@@ -24,14 +24,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@id/lister"
+        app:layout_constraintBottom_toTopOf="@id/departmentList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView5">
 
 
         <RadioGroup
-            android:id="@+id/selectDep"
+            android:id="@+id/selectDepRadioGrp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -42,7 +42,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/academicRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/department_select"
@@ -51,12 +51,14 @@
                 android:text="ACADEMIC"
                 android:textColor="@drawable/department_select_text"
                 android:textSize="24sp" />
-<Space
-    android:layout_width="0dp"
-    android:layout_height="match_parent"
-    android:layout_weight="1"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/administrativeRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/department_select"
@@ -65,12 +67,14 @@
                 android:text="ADMINISTRATIVE"
                 android:textColor="@drawable/department_select_text"
                 android:textSize="24sp" />
+
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
+
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/otherRadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/department_select"
@@ -82,12 +86,11 @@
         </RadioGroup>
 
 
-</HorizontalScrollView>
-
+    </HorizontalScrollView>
 
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/lister"
+        android:id="@+id/departmentList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
