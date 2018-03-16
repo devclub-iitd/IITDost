@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -8,6 +8,27 @@
         <item name="colorAccent">@color/colorAccent</item>
 
 
+    </style>
+
+    <style name="CustomRadioButton">
+        <item name="android:background">@drawable/rounded_corner_inactive</item>
+        <!--<item name="android:paddingBottom">2dp</item>-->
+        <item name="android:clickable">true</item>
+        <!--<item name="android:paddingTop">10dp</item>-->
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <!--android:layout_marginStart="8dp"-->
+    </style>
+
+    <style name="CustomRadioButton_Text">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <!--<item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">0dp        </item>-->
+        <!--<item name="android:paddingLeft">0dp</item>-->
+        <!--<item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">0dp</item>-->
+        <!--<item name="android:paddingRight">0dp</item>-->
     </style>
 
 </resources>

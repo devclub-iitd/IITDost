@@ -90,23 +90,14 @@ public class MainActivity extends AppCompatActivity {
                         // or ft.add(R.id.your_placeholder, new FooFragment());
                         // Complete the changes added above
                         ft.commit();
-//                    mTextMessage.setText(R.string.title_home);
                         return true;
                     case 1:
-                        // Replace the contents of the container with the new fragment
                         ft.replace(R.id.home_frag_space, new NotificationFragment());
-                        // or ft.add(R.id.your_placeholder, new FooFragment());
-                        // Complete the changes added above
                         ft.commit();
-//                    mTextMessage.setText(R.string.title_notifications);
                         return true;
                     case 2:
-                        // Replace the contents of the container with the new fragment
                         ft.replace(R.id.home_frag_space, new RequestsFragment());
-                        // or ft.add(R.id.your_placeholder, new FooFragment());
-                        // Complete the changes added above
                         ft.commit();
-//                    mTextMessage.setText(R.string.title_requests);
                         return true;
                 }
                 return false;
