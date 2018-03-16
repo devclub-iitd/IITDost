@@ -22,7 +22,7 @@ public class SelectDepartmentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
-        return inflater.inflate(R.layout.fragment_notifications_main, parent, false);
+        return inflater.inflate(R.layout.fragment_select_department, parent, false);
     }
 
     // This event is triggered soon after onCreateView().
