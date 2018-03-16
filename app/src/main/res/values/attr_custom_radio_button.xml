@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="CustomRadioButton">
-        <attr name="customButtonText" format="string"/>
-        <attr name="customButtonTextColor" format="color"/>
-        <attr name="customButtonPressedTextColor" format="color"/>
-    </declare-styleable>
-</resources>

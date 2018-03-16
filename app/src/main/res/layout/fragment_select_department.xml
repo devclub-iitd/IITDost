@@ -10,79 +10,47 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/antonio_regular"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="SELECT DEPARTMENT"
-        android:textColor="@color/blue"
-        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/scrollViewRadio"
+    <RadioGroup
+        android:id="@+id/selectDep"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        android:fillViewport="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView5">
 
-        <com.example.iitdost.CustomRadioGroup
-            android:id="@+id/selectDepRadioGrp"
-
-            android:layout_width="fill_parent"
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView5">
+            android:layout_weight="1"
+            android:text="ACADEMIC" />
 
-            <com.example.iitdost.CustomRadioButton
-                android:id="@+id/radioButton"
-                style="@style/CustomRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:customButtonText="ACADEMIC" />
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ADMINISTRATIVE" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <com.example.iitdost.CustomRadioButton
-                android:id="@+id/radioButton2"
-                style="@style/CustomRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:customButtonText="ADMINISTRATIVE" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"></Space>
-
-            <com.example.iitdost.CustomRadioButton
-                android:id="@+id/radioButton3"
-                style="@style/CustomRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:customButtonText="OTHERS" />
-
-        </com.example.iitdost.CustomRadioGroup>
-    </HorizontalScrollView>
-
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="OTHERS" />
+    </RadioGroup>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -92,5 +60,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollViewRadio" />
+        app:layout_constraintTop_toBottomOf="@id/selectDep" />
 </android.support.constraint.ConstraintLayout>

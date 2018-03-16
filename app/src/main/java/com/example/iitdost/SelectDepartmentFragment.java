@@ -22,7 +22,7 @@ public class SelectDepartmentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
-        return inflater.inflate(R.layout.fragment_select_department, parent, false);
+        return inflater.inflate(R.layout.fragment_notifications_main, parent, false);
     }
 
     // This event is triggered soon after onCreateView().
@@ -30,7 +30,7 @@ public class SelectDepartmentFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
-        CustomRadioGroup selectDepartment= (CustomRadioGroup) view.findViewById(R.id.selectDepRadioGrp);
+        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
     }
 }
 
