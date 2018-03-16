@@ -1,10 +1,12 @@
 package com.example.iitdost;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * Created by ankurshaswat on 14/3/18.
@@ -31,6 +33,22 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
+        Button bookAppointmentBtn= view.findViewById(R.id.bookAppointmentButton);
+        bookAppointmentBtn.setOnClickListener(onClickListener);
     }
+
+    private View.OnClickListener onClickListener=new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.bookAppointmentButton:
+                    Intent intent=new Intent(getContext(),BookAppointmentActivity.class);
+                    startActivity(intent);
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }
 
