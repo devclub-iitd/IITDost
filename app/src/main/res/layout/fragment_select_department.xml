@@ -11,6 +11,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:paddingLeft="15dp"
+        android:paddingBottom="5dp"
+        android:textSize="25dp"
+        android:fontFamily="@font/antonio_bold"
         android:text="SELECT DEPARTMENT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,9 +25,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@id/departmentList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,14 +52,11 @@
                 android:background="@drawable/department_select"
                 android:button="@null"
                 android:fontFamily="@font/antonio_regular"
-                android:text="ACADEMIC"
+                android:text=" ACADEMIC "
+                android:layout_marginRight="10dp"
                 android:textColor="@drawable/department_select_text"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
 
             <RadioButton
                 android:id="@+id/administrativeRadio"
@@ -64,14 +65,15 @@
                 android:background="@drawable/department_select"
                 android:button="@null"
                 android:fontFamily="@font/antonio_regular"
-                android:text="ADMINISTRATIVE"
+                android:text=" ADMINISTRATIVE "
                 android:textColor="@drawable/department_select_text"
-                android:textSize="24sp" />
+                android:layout_marginRight="10dp"
+                android:textSize="20sp" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+            <!--<Space-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1" />-->
 
             <RadioButton
                 android:id="@+id/otherRadio"
@@ -80,9 +82,9 @@
                 android:background="@drawable/department_select"
                 android:button="@null"
                 android:fontFamily="@font/antonio_regular"
-                android:text="OTHERS"
+                android:text=" OTHERS "
                 android:textColor="@drawable/department_select_text"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </RadioGroup>
 
 
