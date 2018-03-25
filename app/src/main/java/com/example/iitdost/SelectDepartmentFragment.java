@@ -1,17 +1,15 @@
 package com.example.iitdost;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,8 +22,9 @@ import static android.content.ContentValues.TAG;
 
 public class SelectDepartmentFragment extends Fragment {
 
-    private LinearLayoutManager mLayoutManager;
-
+    private LinearLayoutManager llm;
+    private RadioGroup radioGroup;
+    private RecyclerView departmentListView;
 
     public SelectDepartmentFragment() {
         // Required empty public constructor
@@ -45,24 +44,35 @@ public class SelectDepartmentFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
-        RadioGroup radioGroup=view.findViewById(R.id.selectDepRadioGrp);
+        radioGroup=view.findViewById(R.id.selectDepRadioGrp);
+        departmentListView = view.findViewById(R.id.departmentList);
 
+        llm = new LinearLayoutManager(getContext());
+
+
+        initializeView();
+
+
+        super.onViewCreated(view, savedInstanceState);
+
+    }
+
+
+    private void initializeView(){
         List<String> academics = Arrays.asList("Applied Mechanics", "Biochemical", "Chemical","Civil"
-                                            ,"Computer Science","Design","Electrical");
+                ,"Computer Science","Design","Electrical");
         List<String> administrative = Arrays.asList("Accounts Section", "Alumni Affairs", "P.G. Section","Security Unit"
                 ,"Student Affairs","Training & Placement","U.G. Section");
         List<String> others = Arrays.asList("Student Hostels", "Guest House", "R & D Unit","Store & Purchase"
                 ,"Transport Unit","Sports Office");
 
 
-        final DepartmentAdapter academicsAdapter=new DepartmentAdapter(academics);
-        final DepartmentAdapter administrativeAdapter=new DepartmentAdapter(administrative);
-        final DepartmentAdapter othersAdapter=new DepartmentAdapter(others);
+        final DepartmentAdapter academicsAdapter=new DepartmentAdapter(academics,getActivity());
+        final DepartmentAdapter administrativeAdapter=new DepartmentAdapter(administrative,getActivity());
+        final DepartmentAdapter othersAdapter=new DepartmentAdapter(others,getActivity());
 
 
 
-        final RecyclerView departmentListView = view.findViewById(R.id.departmentList);
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
         departmentListView.setLayoutManager(llm);
         departmentListView.setAdapter(academicsAdapter);
 
@@ -75,7 +85,6 @@ public class SelectDepartmentFragment extends Fragment {
                     case R.id.academicRadio:
                         Log.d(TAG, "onCheckedChanged: Setting Academic Radio");
                         departmentListView.setAdapter(academicsAdapter);
-                        academicsAdapter.notifyDataSetChanged();
                         break;
                     case R.id.administrativeRadio:
                         departmentListView.setAdapter(administrativeAdapter);
@@ -85,16 +94,13 @@ public class SelectDepartmentFragment extends Fragment {
                         break;
                     default:
                         Log.d(TAG, "onCheckedChanged: In Default");
-
                         break;
                 }
             }
         });
 
-
-
-        super.onViewCreated(view, savedInstanceState);
-
+//        RadioButton newButton=getLayoutInflater().inflate(R.id.)
+//        radioGroup.addView();
     }
 }
 

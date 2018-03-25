@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.example.iitdost.BookAppointmentActivity">
 
 
@@ -21,6 +22,12 @@
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme">
 
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@mipmap/left_arrow" />
 
                 <TextView
                     android:id="@+id/toolbarTitleBookAppointment"
@@ -36,20 +43,34 @@
 
 
             </android.support.v7.widget.Toolbar>
+
+
         </android.support.design.widget.AppBarLayout>
 
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/book_appointment_frag_space"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appBarBookAppointment"
-            app:layout_constraintVertical_bias="0" />
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/book_appointment_frag_space"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarBookAppointment" />
 
+    <FrameLayout
+        android:id="@+id/book_appointment_frag_space_sel_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_appointment_frag_space">
 
+    </FrameLayout>
 
 
 </android.support.constraint.ConstraintLayout>
