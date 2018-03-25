@@ -1,5 +1,6 @@
 package com.example.iitdost;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.List;
 public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.MyViewHolder> {
 
         private List<String> departmentList;
+        private Activity parentActivity;
         /**
          * View holder class
          * */
@@ -27,8 +29,9 @@ public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.M
             }
         }
 
-        public DepartmentAdapter(List<String> departmentList) {
+        public DepartmentAdapter(List<String> departmentList,Activity parentActivity) {
             this.departmentList = departmentList;
+            this.parentActivity=parentActivity;
 
         }
 
@@ -46,20 +49,25 @@ public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.M
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.box_department,parent, false);
+                    .inflate(R.layout.box_department, parent, false);
             v.setOnClickListener(mOnClickListener);
             return new MyViewHolder(v);
+
         }
-
-
 
 
     View.OnClickListener mOnClickListener=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            TextView txt=view.findViewById(R.id.department);
+            String department=txt.getText().toString();
 
-        }
+            Activity act = parentActivity;
+            if (act instanceof BookAppointmentActivity)
+                ((BookAppointmentActivity) act).launchSelProf(department);
+    }
     };
+
 
 }
 
