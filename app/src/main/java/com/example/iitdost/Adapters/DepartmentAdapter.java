@@ -1,4 +1,4 @@
-package com.example.iitdost;
+package com.example.iitdost.Adapters;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.iitdost.BookAppointment.BookAppointmentActivity;
+import com.example.iitdost.R;
 
 import java.util.List;
 
@@ -64,7 +67,7 @@ public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.M
 
             Activity act = parentActivity;
             if (act instanceof BookAppointmentActivity)
-                ((BookAppointmentActivity) act).launchSelProf(department);
+                ((BookAppointmentActivity) act).changeState(BookAppointmentActivity.State.SELECT_DEPARTMENT,department);
     }
     };
 

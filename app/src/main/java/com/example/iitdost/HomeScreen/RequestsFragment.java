@@ -1,10 +1,12 @@
-package com.example.iitdost;
+package com.example.iitdost.HomeScreen;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.iitdost.R;
 
 /**
  * Created by ankurshaswat on 14/3/18.

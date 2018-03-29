@@ -1,4 +1,4 @@
-package com.example.iitdost;
+package com.example.iitdost.BookAppointment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
+
+import com.example.iitdost.Adapters.DepartmentAdapter;
+import com.example.iitdost.R;
 
 import java.util.Arrays;
 import java.util.List;

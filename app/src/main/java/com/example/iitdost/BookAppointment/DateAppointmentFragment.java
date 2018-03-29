@@ -1,10 +1,12 @@
-package com.example.iitdost;
+package com.example.iitdost.BookAppointment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.iitdost.R;
 
 public class DateAppointmentFragment extends Fragment {
 

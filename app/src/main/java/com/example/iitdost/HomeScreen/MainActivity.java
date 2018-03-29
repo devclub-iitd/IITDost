@@ -1,4 +1,4 @@
-package com.example.iitdost;
+package com.example.iitdost.HomeScreen;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -20,6 +20,7 @@ import android.support.v4.view.GravityCompat;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
+import com.example.iitdost.R;
 
 public class MainActivity extends AppCompatActivity {
 
