@@ -14,6 +14,8 @@ import android.widget.RadioGroup;
 public class WhomToMeetFragment extends Fragment {
 
     String department;
+    RadioGroup typeOfStaffRadioGrp;
+    RadioGroup staffDisplayList;
 
     public WhomToMeetFragment() {
         // Required empty public constructor
@@ -36,19 +38,42 @@ public class WhomToMeetFragment extends Fragment {
 
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
 
-        RadioGroup selProf = view.findViewById(R.id.selProfRadioGrp);
-
-
-        selProf.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                ((BookAppointmentActivity) getActivity()).launchSelDate("faculty name");
-            }
-        });
+        initializeView(view);
     }
 
 
     void setDepartment(String department) {
         this.department = department;
     }
+
+    private void initializeView(View view) {
+        typeOfStaffRadioGrp = view.findViewById(R.id.selProfRadioGrp);
+        staffDisplayList = view.findViewById(R.id.selectStaff);
+
+
+        typeOfStaffRadioGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+                switch (i) {
+//TODO : optimize this based on state (Not refill if already in correct state (Depending on previous state)
+
+                    case R.id.facultyRadio:
+                        staffDisplayList.removeAllViews();
+//                        TODO: addChildViews(array,staffDisplayList);
+                        break;
+                    case R.id.otherStaffRadio:
+                        staffDisplayList.removeAllViews();
+//                        TODO: addChildViews(array,staffDisplayList);
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        });
+
+
+    }
+
 }

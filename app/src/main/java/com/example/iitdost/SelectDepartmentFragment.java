@@ -44,7 +44,7 @@ public class SelectDepartmentFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
-        radioGroup=view.findViewById(R.id.selectDepRadioGrp);
+        radioGroup = view.findViewById(R.id.selProfRadioGrp);
         departmentListView = view.findViewById(R.id.departmentList);
 
         llm = new LinearLayoutManager(getContext());

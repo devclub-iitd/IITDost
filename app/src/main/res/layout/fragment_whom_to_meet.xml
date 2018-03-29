@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/selectDepRadioGrp"
+        android:id="@+id/selProfRadioGrp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -62,7 +62,7 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/selProfRadioGrp"
+        android:id="@+id/selectStaff"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectDepRadioGrp">
+        app:layout_constraintTop_toBottomOf="@+id/selProfRadioGrp">
 
         <RadioButton
             android:id="@+id/radioButton"
