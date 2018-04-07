@@ -12,9 +12,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="SELECT TIME OF APPOINTMENT"
+        android:text="@string/select_time_of_appointment"
+        android:textColor="@color/black"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="5dp"
+        android:textSize="25sp"
+        android:fontFamily="@font/antonio_regular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/textView7"
@@ -24,11 +30,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="March 05, 2018"
+        android:text="@string/march_05_2018"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
         app:layout_constraintEnd_toStartOf="@+id/imageButton5"
         app:layout_constraintStart_toEndOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:textSize="18.7sp"
+        android:fontFamily="@font/opensans_regular"
+        android:textColor="@color/blue"
+        android:lineSpacingExtra="33sp" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -38,15 +48,17 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:srcCompat="@drawable/ic_home_black_24dp" />
+        app:srcCompat="@drawable/ic_home_black_24dp"
+        android:contentDescription="@string/left_arrow" />
 
     <ImageButton
         android:id="@+id/imageButton5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/right_arrow"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:srcCompat="@drawable/ic_home_black_24dp" />
 
@@ -56,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Available Slots:"
+        android:text="@string/available_slots"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
 
@@ -71,11 +83,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8">
 
+
         <RadioButton
             android:id="@+id/radioButton8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:background="@drawable/date_select"
+            android:textColor="@drawable/date_select_text"
+            android:layout_marginEnd="15dp"
+            android:button="@null"
             android:textAlignment="center"
             android:text="9\nam" />
 
@@ -83,7 +99,10 @@
             android:id="@+id/radioButton7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:background="@drawable/date_select"
+            android:textColor="@drawable/date_select_text"
+            android:layout_marginEnd="15dp"
+            android:button="@null"
             android:textAlignment="center"
             android:text="2\npm" />
 
@@ -91,7 +110,10 @@
             android:id="@+id/radioButton6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:background="@drawable/date_select"
+            android:textColor="@drawable/date_select_text"
+            android:layout_marginEnd="15dp"
+            android:button="@null"
             android:textAlignment="center"
             android:text="4\npm" />
     </RadioGroup>

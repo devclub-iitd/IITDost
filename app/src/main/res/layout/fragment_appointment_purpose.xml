@@ -5,14 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="PURPOSE OF APPOINTMENT"
+        android:textColor="@color/black"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="@string/purpose_of_appointment"
+
+        android:paddingBottom="5dp"
+        android:textSize="25sp"
+        android:fontFamily="@font/antonio_regular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,28 +37,28 @@
             android:id="@+id/radioButton12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/blue"
             android:layout_weight="1"
-            android:text="Academic Doubts &amp; Discussion" />
+            android:text="@string/academic_doubts_amp_discussion" />
 
         <RadioButton
             android:id="@+id/radioButton11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/blue"
 
             android:layout_weight="1"
 
-            android:text="Personal Query &amp; Discussion" />
+            android:text="@string/personal_query_amp_discussion" />
 
         <RadioButton
             android:id="@+id/radioButton10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/blue"
 
             android:layout_weight="1"
-            android:text="Casual Meeting"/>
+            android:text="@string/casual_meeting"/>
 
 
         <RadioButton
@@ -60,8 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/black"
+            android:textColor="@color/blue"
 
-            android:text="Others"/>
+            android:text="@string/others_purpose"/>
     </RadioGroup>
 </android.support.constraint.ConstraintLayout>

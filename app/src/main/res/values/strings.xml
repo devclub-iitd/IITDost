@@ -49,4 +49,24 @@
     <string name="leftbutton">leftButton</string>
     <string name="rightbutton">rightButton</string>
     <string name="march_2018">March 2018</string>
+    <string name="department_name_placeholder">Department Name Placeholder</string>
+    <string name="purpose_of_appointment">PURPOSE OF APPOINTMENT</string>
+    <string name="academic_doubts_amp_discussion"><![CDATA[Academic Doubts & Discussion]]></string>
+    <string name="personal_query_amp_discussion"><![CDATA[Personal Query & Discussion]]></string>
+    <string name="casual_meeting">Casual Meeting</string>
+    <string name="others_purpose">Others</string>
+    <string name="proceed">PROCEED</string>
+    <string name="cancel">CANCEL</string>
+    <string name="notifications">Notifications</string>
+    <string name="requests">Requests</string>
+    <string name="march_05_2018">March 05, 2018</string>
+    <string name="left_arrow">Left Arrow</string>
+    <string name="right_arrow">Right Arrow</string>
+    <string name="available_slots">Available Slots:</string>
+    <string name="select_time_of_appointment">SELECT TIME OF APPOINTMENT</string>
+    <string name="prof_jyoti_kumar">Prof. Jyoti Kumar</string>
+    <string name="prof_image">Prof Image</string>
+    <string name="prof_subashish_bannerji">Prof. Subashish Bannerji</string>
+    <string name="prof_k_atreya">Prof. K Atreya</string>
+    <string name="prof_image">Prof Image</string>
 </resources>

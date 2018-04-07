@@ -9,7 +9,7 @@
     <color name="grey">#c3baba</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <!--<color name="user">#66000000</color>-->
+    <color name="user">#66000000</color>
 
     <color name="colorToolbar">#FFFFFF</color>
     <array name="tab_colors">
