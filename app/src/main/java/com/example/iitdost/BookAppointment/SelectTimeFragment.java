@@ -10,7 +10,7 @@ import com.example.iitdost.R;
 
 public class SelectTimeFragment extends Fragment {
 
-    public RequestsFragment() {
+    public SelectTimeFragment() {
     }
 
     @Override

@@ -5,24 +5,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="@string/select_date_of_appointment"
+        android:paddingBottom="5dp"
+        android:textSize="25sp"
         android:fontFamily="@font/antonio_regular"
-        android:letterSpacing="0.01"
-        android:text="SELECT DATE OF APPOINTMENT"
-        android:textColor="#040f1b"
-        android:textSize="22.3sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageButton
+        android:contentDescription="@string/leftbutton"
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,9 +37,10 @@
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="80dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/rightbutton"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:srcCompat="@android:drawable/arrow_down_float" />
 
@@ -51,9 +53,9 @@
         android:layout_marginStart="8dp"
         android:textSize="18.7sp"
         android:fontFamily="@font/opensans_semibold"
-        android:textColor="#113157"
+        android:textColor="@color/blue"
         android:lineSpacingExtra="33sp"
-        android:text="March 2018"
+        android:text="@string/march_2018"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton"
         app:layout_constraintEnd_toStartOf="@+id/imageButton2"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
@@ -76,6 +78,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Su\n4"
+            android:background="@drawable/date_select"
+            android:textColor="@drawable/date_select_text"
+            android:layout_marginEnd="15dp"
             android:button="@null"
             android:textAlignment="center" />
 
@@ -83,6 +88,49 @@
             android:id="@+id/radioButton5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/date_select"
+            android:textColor="@drawable/date_select_text"
+            android:layout_marginEnd="15dp"
+            android:text="Mo\n5"
+            android:button="@null"
+            android:textAlignment="center" />
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/date_select"
+            android:textColor="@drawable/date_select_text"
+            android:layout_marginEnd="15dp"
+            android:text="Mo\n5"
+            android:button="@null"
+            android:textAlignment="center" />
+        <RadioButton
+            android:id="@+id/radioButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/date_select"
+            android:textColor="@drawable/date_select_text"
+            android:layout_marginEnd="15dp"
+            android:text="Mo\n5"
+            android:button="@null"
+            android:textAlignment="center" />
+        <RadioButton
+            android:id="@+id/radioButton8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/date_select"
+            android:textColor="@drawable/date_select_text"
+            android:layout_marginEnd="15dp"
+            android:text="Mo\n5"
+            android:button="@null"
+            android:textAlignment="center" />
+        <RadioButton
+            android:id="@+id/radioButton9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/date_select"
+            android:textColor="@drawable/date_select_text"
+            android:layout_marginEnd="15dp"
             android:text="Mo\n5"
             android:button="@null"
             android:textAlignment="center" />

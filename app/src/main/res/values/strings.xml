@@ -37,4 +37,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_button">Back Button</string>
+    <string name="select_department">SELECT DEPARTMENT</string>
+    <string name="academic">ACADEMIC</string>
+    <string name="administrative">ADMINISTRATIVE</string>
+    <string name="others">OTHERS</string>
+    <string name="who_do_you_want_to_meet">WHO DO YOU WANT TO MEET?</string>
+    <string name="faculty">FACULTY</string>
+    <string name="other_staff">OTHER STAFF</string>
+    <string name="select_date_of_appointment">SELECT DATE OF APPOINTMENT</string>
+    <string name="leftbutton">leftButton</string>
+    <string name="rightbutton">rightButton</string>
+    <string name="march_2018">March 2018</string>
 </resources>

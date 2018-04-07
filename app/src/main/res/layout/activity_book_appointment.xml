@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.example.iitdost.BookAppointmentActivity">
+    tools:context="com.example.iitdost.BookAppointment.BookAppointmentActivity">
 
 
 
@@ -23,6 +23,7 @@
                 android:theme="?attr/actionBarTheme">
 
                 <ImageButton
+                    android:contentDescription="@string/back_button"
                     android:id="@+id/backButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"

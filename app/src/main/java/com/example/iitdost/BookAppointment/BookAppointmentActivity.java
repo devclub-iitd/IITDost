@@ -66,9 +66,10 @@ public class BookAppointmentActivity extends AppCompatActivity {
                 launchSelDate(val);
                 break;
             case CONFIRM_DATE:
-                launchConfirmDate();
+                launchConfirmDate(val);
                 break;
             case SELECT_TIME:
+                launchSelTime(val);
                 break;
             case SELECT_PURPOSE:
                 break;

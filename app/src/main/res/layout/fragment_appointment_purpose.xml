@@ -31,6 +31,7 @@
             android:id="@+id/radioButton12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_weight="1"
             android:text="Academic Doubts &amp; Discussion" />
 
@@ -38,6 +39,8 @@
             android:id="@+id/radioButton11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+
             android:layout_weight="1"
 
             android:text="Personal Query &amp; Discussion" />
@@ -46,6 +49,8 @@
             android:id="@+id/radioButton10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+
             android:layout_weight="1"
             android:text="Casual Meeting"/>
 
@@ -55,6 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/black"
+
             android:text="Others"/>
     </RadioGroup>
 </android.support.constraint.ConstraintLayout>

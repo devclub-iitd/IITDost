@@ -8,15 +8,15 @@
         android:id="@+id/whomToMeet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:letterSpacing="0.01"
-        android:text="WHO DO YOU WANT TO MEET?"
-        android:textAppearance="@font/antonio_regular"
-        android:textColor="#040f1b"
-        android:textSize="33.5sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="5dp"
+        android:text="@string/who_do_you_want_to_meet"
+        android:textSize="25sp"
+        android:fontFamily="@font/antonio_regular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,12 +36,12 @@
             android:id="@+id/facultyRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/department_select"
             android:button="@null"
             android:fontFamily="@font/antonio_regular"
-            android:text="FACULTY"
+            android:text="@string/faculty"
             android:textAlignment="center"
             android:textColor="@drawable/department_select_text"
             android:textSize="20sp" />
@@ -50,12 +50,12 @@
             android:id="@+id/otherStaffRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/department_select"
             android:button="@null"
             android:fontFamily="@font/antonio_regular"
-            android:text="OTHER STAFF"
+            android:text="@string/other_staff"
             android:textAlignment="center"
             android:textColor="@drawable/department_select_text"
             android:textSize="20sp" />
@@ -63,7 +63,7 @@
 
     <RadioGroup
         android:id="@+id/selectStaff"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -79,20 +79,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Prof.1" />
+            android:text="Prof. K Atreya" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Prof.2" />
+            android:text="Prof. Jyoti Kumar" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Prof.3" />
+            android:text="Prof. Subashish Bannerji" />
     </RadioGroup>
 </android.support.constraint.ConstraintLayout>
