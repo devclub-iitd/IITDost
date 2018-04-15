@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.iitdost.R;
@@ -53,6 +54,20 @@ public class WhomToMeetFragment extends Fragment {
         staffDisplayList = view.findViewById(R.id.selectStaff);
 
 
+        typeOfStaffRadioGrp.check(R.id.facultyRadio);
+
+
+        staffDisplayList.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+                RadioButton rb=(RadioButton) radioGroup.getChildAt(i);
+
+                if (getActivity() instanceof BookAppointmentActivity)
+                    ((BookAppointmentActivity) getActivity()).changeState(BookAppointmentActivity.State.SELECT_DATE,rb.getText().toString());
+            }
+        });
+
         typeOfStaffRadioGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -62,10 +77,12 @@ public class WhomToMeetFragment extends Fragment {
 
                     case R.id.facultyRadio:
                         staffDisplayList.removeAllViews();
+                        addFaculty();
 //                        TODO: addChildViews(array,staffDisplayList);
                         break;
                     case R.id.otherStaffRadio:
                         staffDisplayList.removeAllViews();
+                        addFaculty();
 //                        TODO: addChildViews(array,staffDisplayList);
                         break;
                     default:
@@ -76,6 +93,17 @@ public class WhomToMeetFragment extends Fragment {
         });
 
 
+    }
+
+
+    public void addFaculty(){
+
+        for (int i=0;i<10;i++){
+            RadioButton radioButton= new RadioButton(getContext());
+            radioButton.setId(i);
+            radioButton.setText("Proffff");
+            staffDisplayList.addView(radioButton);
+        }
     }
 
 }

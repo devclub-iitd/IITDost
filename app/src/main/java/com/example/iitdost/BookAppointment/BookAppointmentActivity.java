@@ -88,7 +88,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         if(mSelDep==null){
             mSelDep=new SelectDepartmentFragment();
         }
-        ft.replace(R.id.appointmentFragSpace1, mSelDep, "selDep").addToBackStack("selDep").commit();
+        ft.replace(R.id.appointmentFragSpace1, mSelDep, "selDep").commit();
         frame2.removeAllViews();
     }
 

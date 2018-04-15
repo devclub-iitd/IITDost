@@ -68,6 +68,6 @@
     <string name="prof_subashish_bannerji">Prof. Subashish Bannerji</string>
     <string name="prof_k_atreya">Prof. K Atreya</string>
     <string name="prof_image">Prof Image</string>
-    <string name="mo_n5">Mo 5</string>
-    <string name="su_n4">Su 4</string>
+    <string name="mo_n5">Mo\n5</string>
+    <string name="su_n4">Su\n4</string>
 </resources>

@@ -67,7 +67,7 @@ public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.M
 
             Activity act = parentActivity;
             if (act instanceof BookAppointmentActivity)
-                ((BookAppointmentActivity) act).changeState(BookAppointmentActivity.State.SELECT_DEPARTMENT,department);
+                ((BookAppointmentActivity) act).changeState(BookAppointmentActivity.State.SELECT_FACULTY,department);
     }
     };
 
