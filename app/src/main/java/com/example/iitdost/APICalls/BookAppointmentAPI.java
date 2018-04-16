@@ -13,12 +13,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.iitdost.BookAppointment.SelectDepartmentFragment;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
@@ -28,9 +26,9 @@ import static android.content.ContentValues.TAG;
  * Created by sushant on 16/4/18.
  */
 
-public class BookAppointmentAPI extends Application{
-    public static Context context;
-    private APIConfig apiconfig;
+public abstract class BookAppointmentAPI extends Application{
+    public Context context;
+
     @Override public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
@@ -40,7 +38,7 @@ public class BookAppointmentAPI extends Application{
                                   final List<String> administrative, final List<String> others)
     {
         RequestQueue queue = Volley.newRequestQueue(context);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, apiconfig.URL_UPDATE_DEPARTMENT_LIST,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, APIConfig.URL_UPDATE_DEPARTMENT_LIST,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response)   {
@@ -75,7 +73,7 @@ public class BookAppointmentAPI extends Application{
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d(TAG, "could not retreive data");
+                Log.d(TAG, "could not retrieve data");
             }
         });
 
