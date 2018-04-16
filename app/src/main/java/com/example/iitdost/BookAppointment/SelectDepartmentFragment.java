@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
+import com.example.iitdost.APICalls.BookAppointmentAPI;
 import com.example.iitdost.Adapters.DepartmentAdapter;
 import com.example.iitdost.R;
+
+import org.json.JSONException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +31,10 @@ public class SelectDepartmentFragment extends Fragment {
     private LinearLayoutManager llm;
     private RadioGroup radioGroup;
     private RecyclerView departmentListView;
-
+    DepartmentAdapter academicsAdapter;
+    DepartmentAdapter administrativeAdapter;
+    DepartmentAdapter othersAdapter;
+    BookAppointmentAPI api;
     public SelectDepartmentFragment() {
         // Required empty public constructor
     }
@@ -60,6 +66,11 @@ public class SelectDepartmentFragment extends Fragment {
 
     }
 
+    public void notifyAdapters(){
+        academicsAdapter.notifyDataSetChanged();
+        administrativeAdapter.notifyDataSetChanged();
+        othersAdapter.notifyDataSetChanged();
+    }
 
     private void initializeView(){
         List<String> academics = Arrays.asList("Applied Mechanics", "Biochemical", "Chemical","Civil"
@@ -70,40 +81,47 @@ public class SelectDepartmentFragment extends Fragment {
                 ,"Transport Unit","Sports Office");
 
 
-        final DepartmentAdapter academicsAdapter=new DepartmentAdapter(academics,getActivity());
-        final DepartmentAdapter administrativeAdapter=new DepartmentAdapter(administrative,getActivity());
-        final DepartmentAdapter othersAdapter=new DepartmentAdapter(others,getActivity());
+
+        academicsAdapter=new DepartmentAdapter(academics,getActivity());
+        administrativeAdapter=new DepartmentAdapter(administrative,getActivity());
+        othersAdapter=new DepartmentAdapter(others,getActivity());
 
 
 
         departmentListView.setLayoutManager(llm);
         departmentListView.setAdapter(academicsAdapter);
 
+
         radioGroup.check(R.id.academicRadio);
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i){
-                    case R.id.academicRadio:
-                        Log.d(TAG, "onCheckedChanged: Setting Academic Radio");
-                        departmentListView.setAdapter(academicsAdapter);
-                        break;
-                    case R.id.administrativeRadio:
-                        departmentListView.setAdapter(administrativeAdapter);
-                        break;
-                    case R.id.otherRadio:
-                        departmentListView.setAdapter(othersAdapter);
-                        break;
-                    default:
-                        Log.d(TAG, "onCheckedChanged: In Default");
-                        break;
-                }
-            }
-        });
+        radioGroup.setOnCheckedChangeListener(radioGroupListener);
+        api.getDepartmentList(this, academics, administrative, others);
 
 //        RadioButton newButton=getLayoutInflater().inflate(R.id.)
 //        radioGroup.addView();
     }
+
+    RadioGroup.OnCheckedChangeListener radioGroupListener=new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup radioGroup, int i) {
+            switch (i){
+                case R.id.academicRadio:
+                    Log.d(TAG, "onCheckedChanged: Setting Academic Radio");
+                    departmentListView.setAdapter(academicsAdapter);
+                    break;
+                case R.id.administrativeRadio:
+                    Log.d(TAG, "onCheckedChanged: Setting Administrative Radio");
+                    departmentListView.setAdapter(administrativeAdapter);
+                    break;
+                case R.id.otherRadio:
+                    Log.d(TAG, "onCheckedChanged: Setting departmentListView Radio");
+                    departmentListView.setAdapter(othersAdapter);
+                    break;
+                default:
+                    Log.d(TAG, "onCheckedChanged: In Default");
+                    break;
+            }
+        }
+    };
 }
 
