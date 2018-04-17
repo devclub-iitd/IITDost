@@ -74,8 +74,7 @@ public class SelectDepartmentFragment extends Fragment {
 
         departmentList = Collections.emptyList();
 
-
-        api.getDepartmentList(this, academics, administrative, others);
+        BookAppointmentAPI.getInstance().getDepartmentList(this, academics, administrative, others,getContext());
         showProgressDialog();
 
         departmentAdapter=new DepartmentAdapter(departmentList,getActivity());
@@ -130,11 +129,14 @@ public class SelectDepartmentFragment extends Fragment {
     }
 
     public void onAPICallFailure(){
+        dismissProgressDialog();
         AlertDialog.Builder alertBuilder=new AlertDialog.Builder(getContext());
+        alertBuilder.setMessage("Error");
+        alertBuilder.setTitle("Error Title");
         alertBuilder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                api.getDepartmentList(selectDepartmentFragment, academics, administrative, others);
+                BookAppointmentAPI.getInstance().getDepartmentList(selectDepartmentFragment, academics, administrative, others,getContext());
                 showProgressDialog();
             }
         });

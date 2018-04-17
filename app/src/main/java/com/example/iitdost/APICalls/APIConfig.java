@@ -5,7 +5,6 @@ package com.example.iitdost.APICalls;
  */
 
 public class APIConfig {
-    public static String URL_UPDATE_DEPARTMENT_LIST = "http://10.0.2.2/api/departments";
-
+    public static String URL_UPDATE_DEPARTMENT_LIST = "http://10.249.209.220:5000/api/departments";
 
 }

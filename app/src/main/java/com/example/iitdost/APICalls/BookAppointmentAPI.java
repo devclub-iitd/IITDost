@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Vector;
 
 import static android.content.ContentValues.TAG;
 
@@ -26,16 +27,24 @@ import static android.content.ContentValues.TAG;
  * Created by sushant on 16/4/18.
  */
 
-public abstract class BookAppointmentAPI extends Application{
-    public Context context;
+public class BookAppointmentAPI extends Application{
 
-    @Override public void onCreate() {
+    private static BookAppointmentAPI mInstance;
+
+    public static synchronized BookAppointmentAPI getInstance() {
+        return mInstance;
+    }
+
+
+    @Override
+    public void onCreate() {
         super.onCreate();
-        context = getApplicationContext();
+        mInstance=this;
+        Log.d(TAG, "onCreate:"+this);
     }
 
     public void getDepartmentList(final SelectDepartmentFragment fragment, final List<String> academics,
-                                  final List<String> administrative, final List<String> others)
+                                  final List<String> administrative, final List<String> others,Context context)
     {
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, APIConfig.URL_UPDATE_DEPARTMENT_LIST,
@@ -48,8 +57,8 @@ public abstract class BookAppointmentAPI extends Application{
                         try {
                             JSONArray responseJSONarray = new JSONArray(response);
                             JSONObject responseJSONobject = responseJSONarray.getJSONObject(0);
-                            JSONObject departments=new JSONObject((String)responseJSONobject.get("Departments"));
-                            JSONArray acadJSON=departments.getJSONArray("Academics"),
+                            JSONObject departments=new JSONObject(responseJSONobject.get("Departments").toString());
+                            JSONArray acadJSON=departments.getJSONArray("Academic"),
                                     adminJSON=departments.getJSONArray("Administrative"),othersJSON=departments.getJSONArray("Others");
                             academics.clear();
                             for(int i=0;i<acadJSON.length();i++){
@@ -68,11 +77,17 @@ public abstract class BookAppointmentAPI extends Application{
                         catch(JSONException e){
                             Log.e("JSONException",e.toString());
                         }
-                        fragment.notifyAdapters(); //update all adapters
+
+                        Vector<List<String>> departmentList=new Vector<>();
+                        departmentList.add(academics);
+                        departmentList.add(administrative);
+                        departmentList.add(others);
+                        fragment.onAPICallSuccess(departmentList); //update all adapters
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                fragment.onAPICallFailure();
                 Log.d(TAG, "could not retrieve data");
             }
         });
