@@ -1,7 +1,11 @@
 package com.example.iitdost.BookAppointment;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,12 +16,15 @@ import android.widget.RadioGroup;
 
 import com.example.iitdost.APICalls.BookAppointmentAPI;
 import com.example.iitdost.Adapters.DepartmentAdapter;
+import com.example.iitdost.HomeScreen.MainActivity;
 import com.example.iitdost.R;
 
 import org.json.JSONException;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Vector;
 
 import static android.content.ContentValues.TAG;
 
@@ -28,74 +35,55 @@ import static android.content.ContentValues.TAG;
 
 public class SelectDepartmentFragment extends Fragment {
 
+    private SelectDepartmentFragment selectDepartmentFragment=this;
     private LinearLayoutManager llm;
     private RadioGroup radioGroup;
     private RecyclerView departmentListView;
-    DepartmentAdapter academicsAdapter;
-    DepartmentAdapter administrativeAdapter;
-    DepartmentAdapter othersAdapter;
+    private List<String> departmentList,academics,administrative,others;
+    DepartmentAdapter departmentAdapter;
     BookAppointmentAPI api;
+    ProgressDialog progress ;
+
     public SelectDepartmentFragment() {
-        // Required empty public constructor
     }
 
-    // The onCreateView method is called when Fragment should create its View object hierarchy,
-    // either dynamically or via XML layout inflation.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        // Defines the xml file for the fragment
         return inflater.inflate(R.layout.fragment_select_department, parent, false);
     }
 
-    // This event is triggered soon after onCreateView().
-    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        // Setup any handles to view objects here
-        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
+
         radioGroup = view.findViewById(R.id.selProfRadioGrp);
         departmentListView = view.findViewById(R.id.departmentList);
-
         llm = new LinearLayoutManager(getContext());
-
 
         initializeView();
 
-
         super.onViewCreated(view, savedInstanceState);
-
-    }
-
-    public void notifyAdapters(){
-        academicsAdapter.notifyDataSetChanged();
-        administrativeAdapter.notifyDataSetChanged();
-        othersAdapter.notifyDataSetChanged();
     }
 
     private void initializeView(){
-        List<String> academics = Arrays.asList("Applied Mechanics", "Biochemical", "Chemical","Civil"
-                ,"Computer Science","Design","Electrical");
-        List<String> administrative = Arrays.asList("Accounts Section", "Alumni Affairs", "P.G. Section","Security Unit"
-                ,"Student Affairs","Training & Placement","U.G. Section");
-        List<String> others = Arrays.asList("Student Hostels", "Guest House", "R & D Unit","Store & Purchase"
-                ,"Transport Unit","Sports Office");
+        academics = Collections.emptyList();
+//                Arrays.asList("Applied Mechanics", "Biochemical", "Chemical","Civil","Computer Science","Design","Electrical");
+        administrative = Collections.emptyList();
+//                Arrays.asList("Accounts Section", "Alumni Affairs", "P.G. Section","Security Unit","Student Affairs","Training & Placement","U.G. Section");
+        others = Collections.emptyList();
+//                Arrays.asList("Student Hostels", "Guest House", "R & D Unit","Store & Purchase","Transport Unit","Sports Office");
 
+        departmentList = Collections.emptyList();
 
+        BookAppointmentAPI.getInstance().getDepartmentList(this, academics, administrative, others,getContext());
+        showProgressDialog();
 
-        academicsAdapter=new DepartmentAdapter(academics,getActivity());
-        administrativeAdapter=new DepartmentAdapter(administrative,getActivity());
-        othersAdapter=new DepartmentAdapter(others,getActivity());
-
-
-
+        departmentAdapter=new DepartmentAdapter(departmentList,getActivity());
         departmentListView.setLayoutManager(llm);
-        departmentListView.setAdapter(academicsAdapter);
+        departmentListView.setAdapter(departmentAdapter);
 
 
         radioGroup.check(R.id.academicRadio);
-
         radioGroup.setOnCheckedChangeListener(radioGroupListener);
-        api.getDepartmentList(this, academics, administrative, others);
 
 //        RadioButton newButton=getLayoutInflater().inflate(R.id.)
 //        radioGroup.addView();
@@ -106,16 +94,22 @@ public class SelectDepartmentFragment extends Fragment {
         public void onCheckedChanged(RadioGroup radioGroup, int i) {
             switch (i){
                 case R.id.academicRadio:
+                    departmentList.clear();
+                    departmentList.addAll(academics);
+                    departmentAdapter.notifyDataSetChanged();
                     Log.d(TAG, "onCheckedChanged: Setting Academic Radio");
-                    departmentListView.setAdapter(academicsAdapter);
                     break;
                 case R.id.administrativeRadio:
+                    departmentList.clear();
+                    departmentList.addAll(administrative);
+                    departmentAdapter.notifyDataSetChanged();
                     Log.d(TAG, "onCheckedChanged: Setting Administrative Radio");
-                    departmentListView.setAdapter(administrativeAdapter);
                     break;
                 case R.id.otherRadio:
+                    departmentList.clear();
+                    departmentList.addAll(others);
+                    departmentAdapter.notifyDataSetChanged();
                     Log.d(TAG, "onCheckedChanged: Setting departmentListView Radio");
-                    departmentListView.setAdapter(othersAdapter);
                     break;
                 default:
                     Log.d(TAG, "onCheckedChanged: In Default");
@@ -123,5 +117,54 @@ public class SelectDepartmentFragment extends Fragment {
             }
         }
     };
+
+    public void onAPICallSuccess(Vector<List<String>> resultVector){
+//        for (int i=0;i<resultVector.size();i++){
+//        }
+
+        academics=resultVector.get(0);
+        administrative=resultVector.get(1);
+        others=resultVector.get(2);
+        dismissProgressDialog();
+    }
+
+    public void onAPICallFailure(){
+        dismissProgressDialog();
+        AlertDialog.Builder alertBuilder=new AlertDialog.Builder(getContext());
+        alertBuilder.setMessage("Error");
+        alertBuilder.setTitle("Error Title");
+        alertBuilder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                BookAppointmentAPI.getInstance().getDepartmentList(selectDepartmentFragment, academics, administrative, others,getContext());
+                showProgressDialog();
+            }
+        });
+        alertBuilder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent=new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+                selectDepartmentFragment.getActivity().finish();
+            }
+        });
+        AlertDialog alertDialog = alertBuilder.create();
+        alertDialog.show();
+
+    }
+
+    private void showProgressDialog(){
+        if(progress==null){
+            progress = new ProgressDialog(getContext());
+            progress.setTitle("Loading");
+            progress.setMessage("Wait while loading...");
+            progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+        }
+        progress.show();
+    }
+
+    private void dismissProgressDialog(){
+        progress.dismiss();
+    }
 }
 
