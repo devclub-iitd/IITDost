@@ -17,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -43,8 +44,8 @@ public class BookAppointmentAPI extends Application{
         Log.d(TAG, "onCreate:"+this);
     }
 
-    public void getDepartmentList(final SelectDepartmentFragment fragment, final List<String> academics,
-                                  final List<String> administrative, final List<String> others,Context context)
+    public void getDepartmentList(final SelectDepartmentFragment fragment, final ArrayList<String> academics,
+                                  final ArrayList<String> administrative, final ArrayList<String> others, Context context)
     {
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, APIConfig.URL_UPDATE_DEPARTMENT_LIST,
@@ -78,7 +79,7 @@ public class BookAppointmentAPI extends Application{
                             Log.e("JSONException",e.toString());
                         }
 
-                        Vector<List<String>> departmentList=new Vector<>();
+                        Vector<ArrayList<String>> departmentList=new Vector<>();
                         departmentList.add(academics);
                         departmentList.add(administrative);
                         departmentList.add(others);

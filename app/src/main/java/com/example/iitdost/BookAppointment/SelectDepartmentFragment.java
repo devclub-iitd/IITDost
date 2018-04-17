@@ -21,6 +21,7 @@ import com.example.iitdost.R;
 
 import org.json.JSONException;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -39,7 +40,8 @@ public class SelectDepartmentFragment extends Fragment {
     private LinearLayoutManager llm;
     private RadioGroup radioGroup;
     private RecyclerView departmentListView;
-    private List<String> departmentList,academics,administrative,others;
+    private List<String> departmentList;
+    private ArrayList<String> academics,administrative,others;
     DepartmentAdapter departmentAdapter;
     BookAppointmentAPI api;
     ProgressDialog progress ;
@@ -65,21 +67,22 @@ public class SelectDepartmentFragment extends Fragment {
     }
 
     private void initializeView(){
-        academics = Collections.emptyList();
+        academics = new ArrayList<>();
 //                Arrays.asList("Applied Mechanics", "Biochemical", "Chemical","Civil","Computer Science","Design","Electrical");
-        administrative = Collections.emptyList();
+        administrative = new ArrayList<>();
 //                Arrays.asList("Accounts Section", "Alumni Affairs", "P.G. Section","Security Unit","Student Affairs","Training & Placement","U.G. Section");
-        others = Collections.emptyList();
+        others = new ArrayList<>();
 //                Arrays.asList("Student Hostels", "Guest House", "R & D Unit","Store & Purchase","Transport Unit","Sports Office");
 
         departmentList = Collections.emptyList();
 
-        BookAppointmentAPI.getInstance().getDepartmentList(this, academics, administrative, others,getContext());
-        showProgressDialog();
 
         departmentAdapter=new DepartmentAdapter(departmentList,getActivity());
         departmentListView.setLayoutManager(llm);
         departmentListView.setAdapter(departmentAdapter);
+
+        BookAppointmentAPI.getInstance().getDepartmentList(this, academics, administrative, others,getContext());
+        showProgressDialog();
 
 
         radioGroup.check(R.id.academicRadio);
@@ -118,13 +121,14 @@ public class SelectDepartmentFragment extends Fragment {
         }
     };
 
-    public void onAPICallSuccess(Vector<List<String>> resultVector){
+    public void onAPICallSuccess(Vector<ArrayList<String>> resultVector){
 //        for (int i=0;i<resultVector.size();i++){
 //        }
 
         academics=resultVector.get(0);
         administrative=resultVector.get(1);
         others=resultVector.get(2);
+        departmentAdapter.notifyDataSetChanged();
         dismissProgressDialog();
     }
 
