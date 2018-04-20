@@ -15,7 +15,7 @@ public class ConfirmationFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_confirmation, parent, false);
+        return inflater.inflate(R.layout.fragment_booking_confirmation, parent, false);
     }
 
     @Override
