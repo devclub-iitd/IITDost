@@ -68,7 +68,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
                 break;
             case SELECT_DATE:
                 faculty=val;
-                launchSelDate(val);
+                launchSelDate();
                 break;
             case CONFIRM_DATE:
                 date=val;
@@ -111,18 +111,16 @@ public class BookAppointmentActivity extends AppCompatActivity {
         frame2.removeAllViews();
     }
 
-    private void launchSelDate(String facultyName) {
+    private void launchSelDate() {
         FragmentManager fm = getSupportFragmentManager();
         Fragment frag = fm.findFragmentByTag("selDate");
         if (frag != null) {
-            mSelDate.setFacultyName(facultyName);
             return;
         }
         FragmentTransaction ft = fm.beginTransaction();
         if (mSelDate == null) {
             mSelDate = new DateAppointmentFragment();
         }
-        mSelDate.setFacultyName(facultyName);
         ft.add(R.id.appointmentFragSpace2, mSelDate, "selDate").addToBackStack("selDate").commit();
     }
 

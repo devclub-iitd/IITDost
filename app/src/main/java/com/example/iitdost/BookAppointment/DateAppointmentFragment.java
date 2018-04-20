@@ -5,34 +5,59 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.iitdost.R;
 
 public class DateAppointmentFragment extends Fragment {
 
-    private String facultyName;
+    private LinearLayout dateSelect;
+    View prevSelected;
 
     public DateAppointmentFragment() {
-        // Required empty public constructor
     }
 
-    // The onCreateView method is called when Fragment should create its View object hierarchy,
-    // either dynamically or via XML layout inflation.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        // Defines the xml file for the fragment
         return inflater.inflate(R.layout.fragment_date_of_appointment, parent, false);
     }
 
-    // This event is triggered soon after onCreateView().
-    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        // Setup any handles to view objects here
-        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
+        dateSelect=view.findViewById(R.id.dateList);
+
+        populateDateList();
+
     }
 
-    public void setFacultyName(String name) {
-        this.facultyName = name;
+    private void populateDateList() {
+    for(int i=0;i<8;i++){
+
+        View v=View.inflate(getContext(), R.layout.template_date_select, null);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(prevSelected==null){
+                    prevSelected=view;
+                }else{
+                    prevSelected.setSelected(false);
+                    prevSelected=view;
+                }
+                view.setSelected(true);
+
+                ((BookAppointmentActivity)getActivity()).changeState(BookAppointmentActivity.State.CONFIRM_DATE,"5March");
+            }
+        });
+
+        LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMarginEnd(10);
+        layoutParams.setMarginStart(10);
+        v.setLayoutParams(layoutParams);
+
+        dateSelect.addView(v);
     }
+    }
+
+
 }

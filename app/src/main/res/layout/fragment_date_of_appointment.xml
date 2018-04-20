@@ -61,6 +61,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageButton" />
 
     <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -71,89 +72,16 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButton">
 
         <LinearLayout
+            android:id="@+id/dateList"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <RadioGroup
-                android:id="@+id/dateRadioGroup"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView3">
-
-                <RadioButton
-                    android:id="@+id/radioButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/date_select"
-                    android:button="@null"
-                    android:text="@string/su_n4"
-                    android:textAlignment="center"
-                    android:textColor="@drawable/date_select_text" />
-
-                <RadioButton
-                    android:id="@+id/radioButton5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/date_select"
-                    android:button="@null"
-                    android:text="@string/mo_n5"
-                    android:textAlignment="center"
-                    android:textColor="@drawable/date_select_text" />
-
-                <RadioButton
-                    android:id="@+id/radioButton6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/date_select"
-                    android:button="@null"
-                    android:text="@string/mo_n5"
-                    android:textAlignment="center"
-                    android:textColor="@drawable/date_select_text" />
-
-                <RadioButton
-                    android:id="@+id/radioButton7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/date_select"
-                    android:button="@null"
-                    android:text="@string/mo_n5"
-                    android:textAlignment="center"
-                    android:textColor="@drawable/date_select_text" />
-
-                <RadioButton
-                    android:id="@+id/radioButton8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/date_select"
-                    android:button="@null"
-                    android:text="@string/mo_n5"
-                    android:textAlignment="center"
-                    android:textColor="@drawable/date_select_text" />
-
-                <RadioButton
-                    android:id="@+id/radioButton9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/date_select"
-                    android:button="@null"
-                    android:text="@string/mo_n5"
-                    android:textAlignment="center"
-                    android:textColor="@drawable/date_select_text" />
-            </RadioGroup>
-        </LinearLayout>
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"></LinearLayout>
     </HorizontalScrollView>
 
 </android.support.constraint.ConstraintLayout>

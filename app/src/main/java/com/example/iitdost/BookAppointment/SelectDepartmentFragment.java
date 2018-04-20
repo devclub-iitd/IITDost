@@ -38,7 +38,7 @@ public class SelectDepartmentFragment extends Fragment {
     private LinearLayoutManager llm;
     private RadioGroup radioGroup;
     private RecyclerView departmentListView;
-    private List<String> departmentList;
+    private ArrayList<String> departmentList;
     private ArrayList<String> academics,administrative,others;
     DepartmentAdapter departmentAdapter;
     ProgressDialog progress ;
@@ -71,7 +71,7 @@ public class SelectDepartmentFragment extends Fragment {
         others = new ArrayList<>();
 //                Arrays.asList("Student Hostels", "Guest House", "R & D Unit","Store & Purchase","Transport Unit","Sports Office");
 
-        departmentList = Collections.emptyList();
+        departmentList =new ArrayList<>();
 
 
         departmentAdapter=new DepartmentAdapter(departmentList,getActivity());
