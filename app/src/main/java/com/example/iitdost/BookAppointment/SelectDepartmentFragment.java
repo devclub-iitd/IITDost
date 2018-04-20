@@ -55,6 +55,7 @@ public class SelectDepartmentFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         radioGroup = view.findViewById(R.id.selProfRadioGrp);
+        radioGroup.check(R.id.administrativeRadio);
         departmentListView = view.findViewById(R.id.departmentList);
         llm = new LinearLayoutManager(getContext());
 
@@ -162,6 +163,12 @@ public class SelectDepartmentFragment extends Fragment {
 
     private void dismissProgressDialog(){
         progress.dismiss();
+    }
+
+    @Override
+    public void onResume() {
+        radioGroup.check(R.id.administrativeRadio);
+        super.onResume();
     }
 }
 
