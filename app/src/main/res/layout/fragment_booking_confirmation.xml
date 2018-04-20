@@ -184,7 +184,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/btnConfirm"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"

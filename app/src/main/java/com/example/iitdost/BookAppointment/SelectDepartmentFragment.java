@@ -81,8 +81,6 @@ public class SelectDepartmentFragment extends Fragment {
         BookAppointmentAPI.getInstance().getDepartmentList(this, academics, administrative, others,getContext());
         showProgressDialog();
 
-
-        radioGroup.check(R.id.academicRadio);
         radioGroup.setOnCheckedChangeListener(radioGroupListener);
 
     }
@@ -121,6 +119,9 @@ public class SelectDepartmentFragment extends Fragment {
         administrative=resultVector.get(1);
         others=resultVector.get(2);
         departmentAdapter.notifyDataSetChanged();
+
+        radioGroup.check(R.id.academicRadio);
+
         dismissProgressDialog();
     }
 

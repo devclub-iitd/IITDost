@@ -43,21 +43,6 @@ public class WhomToMeetFragment extends Fragment {
         typeOfStaffRadioGrp = view.findViewById(R.id.selProfRadioGrp);
         staffDisplayList = view.findViewById(R.id.selectStaff);
 
-
-        typeOfStaffRadioGrp.check(R.id.facultyRadio);
-
-
-        staffDisplayList.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
-                RadioButton rb = (RadioButton) radioGroup.getChildAt(i);
-
-                if (getActivity() instanceof BookAppointmentActivity)
-                    ((BookAppointmentActivity) getActivity()).changeState(BookAppointmentActivity.State.SELECT_DATE, rb.getText().toString());
-            }
-        });
-
         typeOfStaffRadioGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -80,6 +65,20 @@ public class WhomToMeetFragment extends Fragment {
 
             }
         });
+
+        typeOfStaffRadioGrp.check(R.id.facultyRadio);
+
+
+        staffDisplayList.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+                RadioButton rb = (RadioButton) radioGroup.getChildAt(i);
+
+                ((BookAppointmentActivity) getActivity()).changeState(BookAppointmentActivity.State.SELECT_DATE, rb.getText().toString());
+            }
+        });
+
 
 
     }

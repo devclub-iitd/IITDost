@@ -23,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
+        android:id="@+id/purposeRadio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -37,28 +38,28 @@
             android:id="@+id/radioButton12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/blue"
             android:layout_weight="1"
-            android:text="@string/academic_doubts_amp_discussion" />
+            android:text="@string/academic_doubts_amp_discussion"
+            android:textColor="@color/blue" />
 
         <RadioButton
             android:id="@+id/radioButton11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/blue"
-
             android:layout_weight="1"
 
-            android:text="@string/personal_query_amp_discussion" />
+            android:text="@string/personal_query_amp_discussion"
+
+            android:textColor="@color/blue" />
 
         <RadioButton
             android:id="@+id/radioButton10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/blue"
-
             android:layout_weight="1"
-            android:text="@string/casual_meeting"/>
+
+            android:text="@string/casual_meeting"
+            android:textColor="@color/blue" />
 
 
         <RadioButton
@@ -66,8 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/blue"
+            android:text="@string/others_purpose"
 
-            android:text="@string/others_purpose"/>
+            android:textColor="@color/blue" />
     </RadioGroup>
 </android.support.constraint.ConstraintLayout>

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btnCancel"
+            android:id="@+id/btnCancelBook"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnProceed"
+            android:id="@+id/btnBook"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
