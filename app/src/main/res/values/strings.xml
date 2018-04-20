@@ -64,11 +64,12 @@
     <string name="right_arrow">Right Arrow</string>
     <string name="available_slots">Available Slots:</string>
     <string name="select_time_of_appointment">SELECT TIME OF APPOINTMENT</string>
-    <string name="prof_jyoti_kumar">Prof. Jyoti Kumar</string>
     <string name="prof_subashish_bannerji">Prof. Subashish Bannerji</string>
     <string name="prof_k_atreya">Prof. K Atreya</string>
     <string name="prof_image">Prof Image</string>
     <string name="mo_n5">Mo\n5</string>
     <string name="su_n4">Su\n4</string>
     <string name="book">BOOK</string>
+    <string name="professor_image">Professor Image</string>
+    <string name="prof_jyoti_kumar">Prof. Jyoti Kumar</string>
 </resources>

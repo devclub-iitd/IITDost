@@ -68,98 +68,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selProfRadioGrp">
 
         <LinearLayout
+            android:id="@+id/profList"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <RadioGroup
-                android:id="@+id/selectStaff"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selProfRadioGrp">
-
-                <!--<LinearLayout-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_marginEnd="20dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical">-->
-
-                <!--<ImageView-->
-                <!--android:id="@+id/imageView"-->
-                <!--android:layout_width="140dp"-->
-                <!--android:layout_height="140dp"-->
-                <!--android:scaleType="fitXY"-->
-                <!--android:foreground="#60238053"-->
-                <!--app:srcCompat="@drawable/facebookplaceholder1"-->
-                <!--android:contentDescription="@string/prof_image" />-->
-
-                <!--<RadioButton-->
-                <!--android:id="@+id/radioButton2"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/prof_jyoti_kumar"-->
-                <!--android:textAlignment="center" />-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_marginEnd="20dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical">-->
-                <!--<ImageView-->
-                <!--android:id="@+id/imageView2"-->
-                <!--android:layout_width="140dp"-->
-                <!--android:layout_height="140dp"-->
-                <!--android:scaleType="fitXY"-->
-                <!--app:srcCompat="@drawable/facebookplaceholder1"-->
-                <!--android:contentDescription="@string/prof_image" />-->
-                <!--<RadioButton-->
-                <!--android:id="@+id/radioButton3"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:textAlignment="center"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/prof_subashish_bannerji" />-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical">-->
-
-                <!--<RadioButton-->
-                <!--android:id="@+id/radioButton"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/prof_k_atreya" />-->
-                <!--</LinearLayout>-->
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="RadioButton" />
-
-                <RadioButton
-                    android:id="@+id/radioButton13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="RadioButton" />
-            </RadioGroup>
-        </LinearLayout>
+            android:orientation="horizontal" />
     </HorizontalScrollView>
 
 </android.support.constraint.ConstraintLayout>
