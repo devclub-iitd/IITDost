@@ -21,26 +21,16 @@ public class WhomToMeetFragment extends Fragment {
     RadioGroup staffDisplayList;
 
     public WhomToMeetFragment() {
-        // Required empty public constructor
     }
 
-    // The onCreateView method is called when Fragment should create its View object hierarchy,
-    // either dynamically or via XML layout inflation.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle
             savedInstanceState) {
-        // Defines the xml file for the fragment
         return inflater.inflate(R.layout.fragment_whom_to_meet, parent, false);
     }
 
-    // This event is triggered soon after onCreateView().
-    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        // Setup any handles to view objects here
-
-        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
-
         initializeView(view);
     }
 
@@ -61,10 +51,10 @@ public class WhomToMeetFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
-                RadioButton rb=(RadioButton) radioGroup.getChildAt(i);
+                RadioButton rb = (RadioButton) radioGroup.getChildAt(i);
 
                 if (getActivity() instanceof BookAppointmentActivity)
-                    ((BookAppointmentActivity) getActivity()).changeState(BookAppointmentActivity.State.SELECT_DATE,rb.getText().toString());
+                    ((BookAppointmentActivity) getActivity()).changeState(BookAppointmentActivity.State.SELECT_DATE, rb.getText().toString());
             }
         });
 
@@ -73,17 +63,16 @@ public class WhomToMeetFragment extends Fragment {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
                 switch (i) {
-//TODO : optimize this based on state (Not refill if already in correct state (Depending on previous state)
-
+                    //TODO : optimize this based on state (Not refill if already in correct state (Depending on previous state)
                     case R.id.facultyRadio:
                         staffDisplayList.removeAllViews();
                         addFaculty();
-//                        TODO: addChildViews(array,staffDisplayList);
+                        //TODO: addChildViews(array,staffDisplayList);
                         break;
                     case R.id.otherStaffRadio:
                         staffDisplayList.removeAllViews();
                         addFaculty();
-//                        TODO: addChildViews(array,staffDisplayList);
+                        //TODO: addChildViews(array,staffDisplayList);
                         break;
                     default:
                         break;
@@ -96,10 +85,10 @@ public class WhomToMeetFragment extends Fragment {
     }
 
 
-    public void addFaculty(){
+    public void addFaculty() {
 
-        for (int i=0;i<10;i++){
-            RadioButton radioButton= new RadioButton(getContext());
+        for (int i = 0; i < 10; i++) {
+            RadioButton radioButton = new RadioButton(getContext());
             radioButton.setId(i);
             radioButton.setText("Proffff");
             staffDisplayList.addView(radioButton);

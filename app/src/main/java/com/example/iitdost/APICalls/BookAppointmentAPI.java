@@ -18,7 +18,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
 
 import static android.content.ContentValues.TAG;
@@ -56,9 +55,9 @@ public class BookAppointmentAPI extends Application{
                         Log.d(TAG, response);
                         //Replace lists with newly received ones
                         try {
-                            JSONArray responseJSONarray = new JSONArray(response);
-                            JSONObject responseJSONobject = responseJSONarray.getJSONObject(0);
-                            JSONObject departments=new JSONObject(responseJSONobject.get("Departments").toString());
+                            JSONArray responseJSONArray = new JSONArray(response);
+                            JSONObject responseJSONObject = responseJSONArray.getJSONObject(0);
+                            JSONObject departments=new JSONObject(responseJSONObject.get("Departments").toString());
                             JSONArray acadJSON=departments.getJSONArray("Academic"),
                                     adminJSON=departments.getJSONArray("Administrative"),othersJSON=departments.getJSONArray("Others");
                             academics.clear();

@@ -19,10 +19,8 @@ import com.example.iitdost.Adapters.DepartmentAdapter;
 import com.example.iitdost.HomeScreen.MainActivity;
 import com.example.iitdost.R;
 
-import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
@@ -43,7 +41,6 @@ public class SelectDepartmentFragment extends Fragment {
     private List<String> departmentList;
     private ArrayList<String> academics,administrative,others;
     DepartmentAdapter departmentAdapter;
-    BookAppointmentAPI api;
     ProgressDialog progress ;
 
     public SelectDepartmentFragment() {
@@ -88,8 +85,6 @@ public class SelectDepartmentFragment extends Fragment {
         radioGroup.check(R.id.academicRadio);
         radioGroup.setOnCheckedChangeListener(radioGroupListener);
 
-//        RadioButton newButton=getLayoutInflater().inflate(R.id.)
-//        radioGroup.addView();
     }
 
     RadioGroup.OnCheckedChangeListener radioGroupListener=new RadioGroup.OnCheckedChangeListener() {
@@ -122,9 +117,6 @@ public class SelectDepartmentFragment extends Fragment {
     };
 
     public void onAPICallSuccess(Vector<ArrayList<String>> resultVector){
-//        for (int i=0;i<resultVector.size();i++){
-//        }
-
         academics=resultVector.get(0);
         administrative=resultVector.get(1);
         others=resultVector.get(2);
@@ -162,7 +154,7 @@ public class SelectDepartmentFragment extends Fragment {
             progress = new ProgressDialog(getContext());
             progress.setTitle("Loading");
             progress.setMessage("Wait while loading...");
-            progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+            progress.setCancelable(false);
         }
         progress.show();
     }

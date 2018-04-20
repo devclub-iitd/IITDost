@@ -26,9 +26,9 @@ public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.M
         public class MyViewHolder extends RecyclerView.ViewHolder {
             public TextView department;
 
-            public MyViewHolder(View view) {
+            MyViewHolder(View view) {
                 super(view);
-                department = (TextView) view.findViewById(R.id.department);
+                department = view.findViewById(R.id.department);
             }
         }
 
@@ -59,7 +59,7 @@ public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.M
         }
 
 
-    View.OnClickListener mOnClickListener=new View.OnClickListener() {
+    private View.OnClickListener mOnClickListener=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             TextView txt=view.findViewById(R.id.department);

@@ -3,29 +3,25 @@ package com.example.iitdost.HomeScreen;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.support.v4.view.GravityCompat;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.example.iitdost.R;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private TextView mTextMessage;
     private DrawerLayout mDrawerLayout;
 
     @Override
@@ -34,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Sets the Toolbar to act as the ActionBar for this Activity window.
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Remove default title text
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
         // Get access to the custom title view
-        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        // TextView mTitle = toolbar.findViewById(R.id.toolbar_title);
 
         //ActionBar for navDrawer button
         mDrawerLayout = findViewById(R.id.drawer_layout);
@@ -51,11 +47,9 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-
         //Initialize bottom navigation bar with different colors and menu items
         int[] tabColors = getApplicationContext().getResources().getIntArray(R.array.tab_colors);
-        AHBottomNavigation bottomNavigation = (AHBottomNavigation) findViewById(R.id.navigation);
+        AHBottomNavigation bottomNavigation = findViewById(R.id.navigation);
         AHBottomNavigationAdapter navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.navigation);
         navigationAdapter.setupWithBottomNavigation(bottomNavigation, tabColors);
 
@@ -63,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setAccentColor(Color.parseColor("#000000"));
 
         //Setting Color for inactive icons on bottom navigation bar
-        bottomNavigation.setInactiveColor(Color.parseColor("#c3baba"));
+        bottomNavigation.setInactiveColor(Color.parseColor("#C3BABA"));
 
         //Setting text size for active and inactive states
         bottomNavigation.setTitleTextSizeInSp(16  , 13);

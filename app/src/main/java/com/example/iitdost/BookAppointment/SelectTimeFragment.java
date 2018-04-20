@@ -21,4 +21,7 @@ public class SelectTimeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
     }
+
+    public void setVals(String faculty, String date) {
+    }
 }

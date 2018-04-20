@@ -11,7 +11,6 @@ import android.widget.FrameLayout;
 
 import com.example.iitdost.R;
 
-import java.util.Enumeration;
 
 public class BookAppointmentActivity extends AppCompatActivity {
 
@@ -26,6 +25,8 @@ public class BookAppointmentActivity extends AppCompatActivity {
         BOOK,
         CONFIRMATION
     }
+
+    String department,faculty,date,time,purpose;
 
     SelectDepartmentFragment mSelDep;
     WhomToMeetFragment mSelProf;
@@ -45,8 +46,10 @@ public class BookAppointmentActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarBookAppointment);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.setDisplayShowTitleEnabled(false);
-//        actionBar.setHomeAsUpIndicator(R.drawable.);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_action_left_arrow);
 
         frame1 = findViewById(R.id.appointmentFragSpace1);
         frame2 = findViewById(R.id.appointmentFragSpace2);
@@ -60,25 +63,31 @@ public class BookAppointmentActivity extends AppCompatActivity {
                 launchSelDep();
                 break;
             case SELECT_FACULTY:
+                department=val;
                 launchSelFaculty(val);
                 break;
             case SELECT_DATE:
+                faculty=val;
                 launchSelDate(val);
                 break;
             case CONFIRM_DATE:
-                launchConfirmDate(val);
+                date=val;
+                launchConfirmDate();
                 break;
             case SELECT_TIME:
-                launchSelTime(val);
+                launchSelTime();
                 break;
             case SELECT_PURPOSE:
+                time=val;
+                launchSelPurpose();
                 break;
             case BOOK:
+                purpose=val;
+                launchBook();
                 break;
             case CONFIRMATION:
-                break;
-
-                default:
+                launchConfirmation(department,faculty,date,time,purpose);
+            default:
                     break;
         }
     }
@@ -117,7 +126,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         ft.add(R.id.appointmentFragSpace2, mSelDate, "selDate").addToBackStack("selDate").commit();
     }
 
-    private void launchConfirmDate(String date){
+    private void launchConfirmDate(){
         FragmentManager fm = getSupportFragmentManager();
         Fragment frag = fm.findFragmentByTag("confDate");
         if (frag != null) {
@@ -130,23 +139,66 @@ public class BookAppointmentActivity extends AppCompatActivity {
         ft.add(R.id.appointmentFragSpace3, mConfDate, "confDate").addToBackStack("confDate").commit();
     }
 
-    private void launchSelTime(String date){
+    private void launchSelTime(){
         FragmentManager fm = getSupportFragmentManager();
-        Fragment frag = fm.findFragmentByTag("confDate");
+        Fragment frag = fm.findFragmentByTag("selTime");
         if (frag != null) {
+            mSelTime.setVals(faculty,date);
             return;
         }
         FragmentTransaction ft = fm.beginTransaction();
-        if (mConfDate == null) {
-            mConfDate = new ConfirmDateFragment();
+        if (mSelTime == null) {
+            mSelTime = new SelectTimeFragment();
+            mSelTime.setVals(faculty,date);
         }
         ft.detach(mSelDate);
         ft.detach(mConfDate);
         ft.replace(R.id.appointmentFragSpace1, mSelTime, "selTime").addToBackStack("selTime").commit();
     }
 
+    private void launchSelPurpose(){
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment frag = fm.findFragmentByTag("selPurpose");
+        if (frag != null) {
+            return;
+        }
+        FragmentTransaction ft = fm.beginTransaction();
+        if (mSelPurpose == null) {
+            mSelPurpose = new SelectPurposeFragment();
+        }
+        ft.add(R.id.appointmentFragSpace2, mSelPurpose, "selPurpose").addToBackStack("selPurpose").commit();
 
+    }
 
+    private void launchBook(){
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment frag = fm.findFragmentByTag("book");
+        if (frag != null) {
+            return;
+        }
+        FragmentTransaction ft = fm.beginTransaction();
+        if (mBook == null) {
+            mBook = new ConfirmBookFragment();
+        }
+        ft.add(R.id.appointmentFragSpace3, mBook, "book").addToBackStack("book").commit();
+
+    }
+
+    private void launchConfirmation(String department, String faculty, String date, String time, String purpose){
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment frag = fm.findFragmentByTag("confirmation");
+        if (frag != null) {
+            mConfirm.setVals(department,faculty,date,time,purpose);
+            return;
+        }
+        FragmentTransaction ft = fm.beginTransaction();
+        if (mConfirm == null) {
+            mConfirm = new ConfirmationFragment();
+        }
+        ft.detach(mSelPurpose);
+        ft.detach(mBook);
+        ft.replace(R.id.appointmentFragSpace1, mConfirm, "confirmation").addToBackStack("confirmation").commit();
+    }
 
 
 }

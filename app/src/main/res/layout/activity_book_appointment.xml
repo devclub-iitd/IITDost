@@ -22,14 +22,6 @@
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme">
 
-                <ImageButton
-                    android:contentDescription="@string/back_button"
-                    android:id="@+id/backButton"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@mipmap/left_arrow" />
-
                 <TextView
                     android:id="@+id/toolbarTitleBookAppointment"
                     style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
