@@ -19,7 +19,7 @@ public class SelectPurposeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_appointment_purpose, parent, false);
+        return inflater.inflate(R.layout.framgent_select_purpose, parent, false);
     }
 
     @Override

@@ -29,8 +29,8 @@ public class BookAppointmentActivity extends AppCompatActivity {
     String department,faculty,date,time,purpose;
 
     SelectDepartmentFragment mSelDep;
-    WhomToMeetFragment mSelProf;
-    DateAppointmentFragment mSelDate;
+    SelectPersonFragment mSelProf;
+    SelectDateFragment mSelDate;
     ConfirmDateFragment mConfDate;
     SelectTimeFragment mSelTime;
     SelectPurposeFragment mSelPurpose;
@@ -104,7 +104,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
     private void launchSelFaculty(String department){
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         if(mSelProf==null){
-            mSelProf=new WhomToMeetFragment();
+            mSelProf=new SelectPersonFragment();
         }
         mSelProf.setDepartment(department);
         ft.replace(R.id.appointmentFragSpace1, mSelProf, "selProf").addToBackStack("selProf").commit();
@@ -119,7 +119,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         }
         FragmentTransaction ft = fm.beginTransaction();
         if (mSelDate == null) {
-            mSelDate = new DateAppointmentFragment();
+            mSelDate = new SelectDateFragment();
         }
         ft.add(R.id.appointmentFragSpace2, mSelDate, "selDate").addToBackStack("selDate").commit();
     }

@@ -6,21 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.iitdost.R;
 
-public class DateAppointmentFragment extends Fragment {
+public class SelectDateFragment extends Fragment {
 
     private LinearLayout dateSelect;
     View prevSelected;
 
-    public DateAppointmentFragment() {
+    public SelectDateFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_date_of_appointment, parent, false);
+        return inflater.inflate(R.layout.fragment_select_date, parent, false);
     }
 
     @Override

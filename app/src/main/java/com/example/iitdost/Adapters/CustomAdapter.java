@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.iitdost.BookAppointment.BookAppointmentActivity;
 import com.example.iitdost.R;
+import com.example.iitdost.RequestDocument.RequestDocumentActivity;
 
 import java.util.List;
 
@@ -16,11 +17,14 @@ import java.util.List;
  * Created by ankurshaswat on 16/3/18.
  */
 
-public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.MyViewHolder> {
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-        private List<String> departmentList;
+    private boolean sizing;
+    private List<String> departmentList;
         private Activity parentActivity;
-        /**
+    private float size;
+
+    /**
          * View holder class
          * */
         public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -32,7 +36,7 @@ public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.M
             }
         }
 
-        public DepartmentAdapter(List<String> departmentList,Activity parentActivity) {
+        public CustomAdapter(List<String> departmentList, Activity parentActivity) {
             this.departmentList = departmentList;
             this.parentActivity=parentActivity;
 
@@ -42,6 +46,9 @@ public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.M
         public void onBindViewHolder(MyViewHolder holder, int position) {
             String department = departmentList.get(position);
             holder.department.setText(department);
+            if(sizing){
+                holder.department.setTextSize(size);
+            }
         }
 
         @Override
@@ -63,14 +70,21 @@ public class DepartmentAdapter  extends RecyclerView.Adapter<DepartmentAdapter.M
         @Override
         public void onClick(View view) {
             TextView txt=view.findViewById(R.id.department);
-            String department=txt.getText().toString();
+            String selectedVal=txt.getText().toString();
 
             Activity act = parentActivity;
             if (act instanceof BookAppointmentActivity)
-                ((BookAppointmentActivity) act).changeState(BookAppointmentActivity.State.SELECT_FACULTY,department);
+                ((BookAppointmentActivity) act).changeState(BookAppointmentActivity.State.SELECT_FACULTY,selectedVal);
+            else if (act instanceof RequestDocumentActivity)
+                ((RequestDocumentActivity) act).changeState(RequestDocumentActivity.State.SELECT_SEMSTER,selectedVal);
     }
     };
 
+
+        public void setSize(float size){
+            sizing=true;
+            this.size=size;
+        }
 
 }
 

@@ -5,14 +5,18 @@
     <item android:state_selected="true"><shape android:shape="oval">
         <solid android:color="@color/green" />
         <size android:width="63dp" android:height="63dp"/>
-        <padding android:left="15dp"/>
-        <padding android:right="15dp"/>
+        <!--<padding android:left="15dp"/>-->
+        <!--<padding android:right="15dp"/>-->
+        <!--<padding android:top="15dp"/>-->
+        <!--<padding android:bottom="15dp"/>-->
     </shape></item>
 
     <item android:state_selected="false"><shape android:shape="oval">
         <solid android:color="@color/grey" />
         <size android:width="63dp" android:height="63dp"/>
-        <padding android:left="15dp"/>
-        <padding android:right="15dp"/>
+        <!--<padding android:left="15dp"/>-->
+        <!--<padding android:right="15dp"/>-->
+        <!--<padding android:top="15dp"/>-->
+        <!--<padding android:bottom="15dp"/>-->
     </shape></item>
 </selector>

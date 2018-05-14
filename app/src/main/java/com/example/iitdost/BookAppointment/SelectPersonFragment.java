@@ -24,20 +24,20 @@ import com.example.iitdost.R;
  * Created by Shashwat Shivam on 25-3-18.
  */
 
-public class WhomToMeetFragment extends Fragment {
+public class SelectPersonFragment extends Fragment {
 
     String department;
     RadioGroup typeOfStaffRadioGrp;
     LinearLayout staffDisplayList;
     private View prevSelected;
 
-    public WhomToMeetFragment() {
+    public SelectPersonFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle
             savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_whom_to_meet, parent, false);
+        return inflater.inflate(R.layout.fragment_select_person, parent, false);
     }
 
     @Override

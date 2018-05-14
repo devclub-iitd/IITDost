@@ -1,4 +1,5 @@
-package com.example.iitdost.BookAppointment;
+package com.example.iitdost.RequestDocument;
+
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -14,11 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
-import com.example.iitdost.APICalls.BookAppointmentAPI;
 import com.example.iitdost.Adapters.CustomAdapter;
 import com.example.iitdost.HomeScreen.MainActivity;
 import com.example.iitdost.R;
-
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,63 +25,70 @@ import java.util.Vector;
 
 import static android.content.ContentValues.TAG;
 
+
 /**
- * Created by ankurshaswat on 14/3/18.
- * Fragment to be used to show notification list.
+ * A simple {@link Fragment} subclass.
  */
+public class SelectDocumentFragment extends Fragment {
 
-public class SelectDepartmentFragment extends Fragment {
 
-    private SelectDepartmentFragment selectDepartmentFragment=this;
+
+    private SelectDocumentFragment selectDocumentFragment=this;
     private LinearLayoutManager llm;
     private RadioGroup radioGroup;
-    private RecyclerView departmentListView;
-    private ArrayList<String> departmentList;
-    private ArrayList<String> academics,administrative,others;
-    CustomAdapter customAdapter;
+    private RecyclerView documentListView;
+    private ArrayList<String> documentList;
+    private ArrayList<String> transcriptsAndDegree,others;
+    CustomAdapter documentAdapter;
     ProgressDialog progress ;
     private int checked;
 
 
-    public SelectDepartmentFragment() {
+    public SelectDocumentFragment() {
+        // Required empty public constructor
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_select_department, parent, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_select_document, container, false);
     }
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        radioGroup = view.findViewById(R.id.selProfRadioGrp);
-        departmentListView = view.findViewById(R.id.departmentList);
+        radioGroup = view.findViewById(R.id.selDocumentTypeRG);
+        documentListView = view.findViewById(R.id.documentList);
         llm = new LinearLayoutManager(getContext());
 
         initializeView();
 
-        radioGroup.check(R.id.administrativeRadio);
-        checked=R.id.administrativeRadio;
+        radioGroup.check(R.id.transcriptsRadio);
+        checked=R.id.transcriptsRadio;
 
         super.onViewCreated(view, savedInstanceState);
     }
 
     private void initializeView(){
-        academics = new ArrayList<>();
-        academics.addAll( Arrays.asList("Applied Mechanics", "Biochemical", "Chemical","Civil","Computer Science","Design","Electrical"));
-        administrative = new ArrayList<>();
-        administrative.addAll( Arrays.asList("Accounts Section", "Alumni Affairs", "P.G. Section","Security Unit","Student Affairs","Training & Placement","U.G. Section"));
+        transcriptsAndDegree = new ArrayList<>();
+        transcriptsAndDegree.addAll(new ArrayList<>(Arrays.asList("Semester Gradesheet (Duplicate)", "Degree Certificate (Original)", "Degree Certificate (Duplicate)", "Provisional Degree Certificate","Full Time to Part Time Conversion","Part Time to Full Time Conversion")));
         others = new ArrayList<>();
-        others.addAll(Arrays.asList("Student Hostels", "Guest House", "R & D Unit","Store & Purchase","Transport Unit","Sports Office"));
+        others.addAll(new ArrayList<>(Arrays.asList("Identity Card (Duplicate)","Bona Fide Certificate","Character Certificate","Migration Certificate","Semester Drop Request","Document Verification")));
 
-        departmentList =new ArrayList<>();
+        documentList =new ArrayList<>();
 
 
-        customAdapter =new CustomAdapter(departmentList,getActivity());
-        departmentListView.setLayoutManager(llm);
-        departmentListView.setAdapter(customAdapter);
+        documentAdapter=new CustomAdapter(documentList,getActivity());
 
-//        BookAppointmentAPI.getInstance().getDepartmentList(this, academics, administrative, others,getContext());
+        documentAdapter.setSize(18);
+
+        documentListView.setLayoutManager(llm);
+        documentListView.setAdapter(documentAdapter);
+
+//        BookAppointmentAPI.getInstance().getDocumentList(this, transcriptsAndDegree, others,getContext());
 //        showProgressDialog();
 
         radioGroup.setOnCheckedChangeListener(radioGroupListener);
@@ -98,26 +104,18 @@ public class SelectDepartmentFragment extends Fragment {
             }else{
                 checked=i;
             }
-
-
             switch (i){
-                case R.id.academicRadio:
-                    departmentList.clear();
-                    departmentList.addAll(academics);
-                    customAdapter.notifyDataSetChanged();
-                    Log.d(TAG, "onCheckedChanged: Setting Academic Radio");
+                case R.id.transcriptsRadio:
+                    documentList.clear();
+                    documentList.addAll(transcriptsAndDegree);
+                    documentAdapter.notifyDataSetChanged();
+                    Log.d(TAG, "onCheckedChanged: Setting Transcripts Radio");
                     break;
-                case R.id.administrativeRadio:
-                    departmentList.clear();
-                    departmentList.addAll(administrative);
-                    customAdapter.notifyDataSetChanged();
-                    Log.d(TAG, "onCheckedChanged: Setting Administrative Radio");
-                    break;
-                case R.id.otherRadio:
-                    departmentList.clear();
-                    departmentList.addAll(others);
-                    customAdapter.notifyDataSetChanged();
-                    Log.d(TAG, "onCheckedChanged: Setting departmentListView Radio");
+                case R.id.documentRadio:
+                    documentList.clear();
+                    documentList.addAll(others);
+                    documentAdapter.notifyDataSetChanged();
+                    Log.d(TAG, "onCheckedChanged: Setting Others Radio");
                     break;
                 default:
                     Log.d(TAG, "onCheckedChanged: In Default");
@@ -127,28 +125,27 @@ public class SelectDepartmentFragment extends Fragment {
     };
 
     public void onAPICallSuccess(Vector<ArrayList<String>> resultVector){
-        academics=resultVector.get(0);
-        administrative=resultVector.get(1);
-        others=resultVector.get(2);
+        transcriptsAndDegree=resultVector.get(0);
+        others=resultVector.get(1);
 
-        departmentList.clear();
+
+        documentList.clear();
 
         switch (checked){
-            case R.id.academicRadio:
-                departmentList.addAll(academics);
+            case R.id.transcriptsRadio:
+                documentList.addAll(transcriptsAndDegree);
                 break;
-            case R.id.administrativeRadio:
-                departmentList.addAll(administrative);
-                break;
-            case R.id.otherRadio:
-                departmentList.addAll(others);
+            case R.id.documentRadio:
+                documentList.addAll(others);
                 break;
             default:
                 Log.d(TAG, "onCheckedChanged: In Default");
                 break;
         }
 
-        customAdapter.notifyDataSetChanged();
+
+
+        documentAdapter.notifyDataSetChanged();
 
         dismissProgressDialog();
     }
@@ -161,7 +158,7 @@ public class SelectDepartmentFragment extends Fragment {
         alertBuilder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                BookAppointmentAPI.getInstance().getDepartmentList(selectDepartmentFragment, academics, administrative, others,getContext());
+//                BookAppointmentAPI.getInstance().getDocumentList(selectDocumentFragment, transcriptsAndDegree, others,getContext());
                 showProgressDialog();
             }
         });
@@ -170,7 +167,7 @@ public class SelectDepartmentFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent=new Intent(getContext(), MainActivity.class);
                 startActivity(intent);
-                selectDepartmentFragment.getActivity().finish();
+                selectDocumentFragment.getActivity().finish();
             }
         });
         AlertDialog alertDialog = alertBuilder.create();
@@ -194,8 +191,8 @@ public class SelectDepartmentFragment extends Fragment {
 
     @Override
     public void onResume() {
-        radioGroup.check(R.id.administrativeRadio);
+        radioGroup.check(R.id.transcriptsRadio);
         super.onResume();
     }
-}
 
+}
